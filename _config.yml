@@ -1,4 +1,4 @@
-title: "Daniel Youn"
+title: "Daniel Youn - System Administrator"
 author: "Blog Author: Daniel Youn"
 description: "University of California, Irvine"
 permalink: /:title/
@@ -18,12 +18,14 @@ show_minimal: false             # remove all clutter
 # Menu                          # for available icons see https://fontawesome.com/v5/icons/
 
 navigation:                     # accepts {file, title, url, icon, sidebaricon}
+  - {file: "README.md", title: "About Me", sidebaricon: address-card}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
-  - {file: "README.md", title: "ABOUT ME", sidebaricon: address-card}
   - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
-  - {file: "network-project.pdf", title: "Network Project 1", sidebaricon: home}
-  - {file: "SharePoint Migration.pdf", title: "SharePoint Migration", sidebaricon: home}
-  - {file: "Office Setup.pdf", title: "Example SOHO Setup", sidebaricon: home}
+  - {file: "network-project.pdf", title: "Network Upgrade Projects", sidebaricon: home}
+  - {file: "SharePoint Migration Project.pdf", title: "OnPrem Server to SharePoint Migration Projects", sidebaricon: home}
+  - {file: "Project1.pdf", title: "Access Controled Remote Tool Setup for Remote Employees", sidebaricon: home}
+  - {file: "Project2.pdf", title: "Dell RAID Upgrade Project with Symbolic Links Requirement", sidebaricon: home}
+  - {file: "Office Setup.pdf", title: "New Small Office Setup", sidebaricon: home}
   
 external:                       # accepts {file, title, url, icon, sidebaricon}
   - {title: Mail, icon: envelope, url: "danielyoun247@gmail.com"}
