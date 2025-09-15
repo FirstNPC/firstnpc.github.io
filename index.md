@@ -13,5 +13,5 @@ Projects
 - [OnPrem Server to SharePoint Migration Projects](SharePoint%20Migration%20Project.pdf)
 - [Secure App-Restricted Remote Access Project](Project1.pdf)
 - [Failed RAID Drive Replacement & Symbolic Link Setup Project](Project2.pdf)
-- [New Office Network and On-Prem AD Server Setup](Office%20Setup.pdf)
+- [New Office Network and On-Prem AD Server Setup Project](Office%20Setup.pdf)
 - [Traditional Phones to VOIP Migration Projects](VOIP-Migration.pdf)
