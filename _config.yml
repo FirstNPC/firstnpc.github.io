@@ -18,9 +18,13 @@ show_minimal: false             # remove all clutter
 # Menu                          # for available icons see https://fontawesome.com/v5/icons/
 
 navigation:                     # accepts {file, title, url, icon, sidebaricon}
-  - {file: "archive.html", title: "HOME CHANGE", sidebaricon: home}
+  - {file: "resume.pdf", title: "Resume", sidebaricon: home}
   - {file: "README.md", title: "ABOUT ME", sidebaricon: address-card}
-
+  - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
+  - {file: "network-project.pdf", title: "Network Project 1", sidebaricon: home}
+  - {file: "SharePoint Migration.pdf", title: "SharePoint Migration", sidebaricon: home}
+  - {file: "Office Setup.pdf", title: "Example SOHO Setup", sidebaricon: home}
+  
 external:                       # accepts {file, title, url, icon, sidebaricon}
   - {title: Mail, icon: envelope, url: "danielyoun247@gmail.com"}
   - {title: Github, icon: github, url: "https://github.com/FirstNPC"}
