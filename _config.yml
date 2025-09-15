@@ -21,7 +21,7 @@ navigation:                     # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md", title: "About Me", sidebaricon: address-card}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
   - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
-  - {title: "Projects", file: "/projects.md"}
+  - {title: "Projects", file: "projects.md"}
 
   
 external:                       # accepts {file, title, url, icon, sidebaricon}
