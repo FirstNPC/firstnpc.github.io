@@ -22,11 +22,7 @@ navigation:                     # accepts {file, title, url, icon, sidebaricon}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
   - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
   - {title: "Projects", file: "/projects.md"}
-  - {file: "network-project.pdf", title: "Network Upgrade Projects", sidebaricon: home}
-  - {file: "SharePoint Migration Project.pdf", title: "OnPrem Server to SharePoint Migration Projects", sidebaricon: home}
-  - {file: "Project1.pdf", title: "Access Controled Remote Tool Setup for Remote Employees", sidebaricon: home}
-  - {file: "Project2.pdf", title: "Dell RAID Upgrade Project with Symbolic Links Requirement", sidebaricon: home}
-  - {file: "Office Setup.pdf", title: "New Small Office Setup", sidebaricon: home}
+
   
 external:                       # accepts {file, title, url, icon, sidebaricon}
   - {title: Mail, icon: envelope, url: "danielyoun247@gmail.com"}
