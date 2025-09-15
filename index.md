@@ -3,9 +3,9 @@ layout: page
 title: "About Me & Projects"
 ---
 
-System Administrator at Techonsite
-A+ and Security+ Certified
-Serving 40+ companies ranging from small business to enterprise level clients.
+System Administrator at Techonsite  
+COMPTIA A+ and Security+ Certified  
+Serving 40+ companies ranging from small business to enterprise level clients  
 
 - [Network Upgrade Projects](network-project.pdf)
 - [OnPrem Server to SharePoint Migration Projects](SharePoint%20Migration%20Project.pdf)
