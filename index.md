@@ -5,8 +5,8 @@ title: "About Me & Projects"
 
 System Administrator at Techonsite  
 Serving 40+ companies ranging from small business to enterprise level clients  
-[CompTIA A+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY)  
-[CompTIA Security+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7)  
+<a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY" target="_blank">CompTIA A+ Certified</a>  
+<a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7" target="_blank">CompTIA Security+ Certified</a> 
 
 Projects
 - [Network Upgrade Projects](network-project.pdf)
