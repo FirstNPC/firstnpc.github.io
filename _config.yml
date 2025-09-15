@@ -21,6 +21,7 @@ navigation:                     # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md", title: "About Me", sidebaricon: address-card}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
   - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
+  - {title: "Projects", file: "/projects.md"}
   - {file: "network-project.pdf", title: "Network Upgrade Projects", sidebaricon: home}
   - {file: "SharePoint Migration Project.pdf", title: "OnPrem Server to SharePoint Migration Projects", sidebaricon: home}
   - {file: "Project1.pdf", title: "Access Controled Remote Tool Setup for Remote Employees", sidebaricon: home}
