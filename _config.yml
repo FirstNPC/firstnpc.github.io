@@ -18,10 +18,11 @@ show_minimal: false             # remove all clutter
 # Menu                          # for available icons see https://fontawesome.com/v5/icons/
 
 navigation:                     # accepts {file, title, url, icon, sidebaricon}
-  - {file: "README.md", title: "About Me", sidebaricon: address-card}
+  - {file: "README.md", title: "README", sidebaricon: address-card}
+  - {title: "About Me & Projects", file: "projects.md"}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
   - {title: "LinkedIn", url: "https://www.linkedin.com/in/djyoun/"}
-  - {title: "Projects", file: "projects.md"}
+
 
   
 external:                       # accepts {file, title, url, icon, sidebaricon}
