@@ -4,7 +4,7 @@ title: "About Me & Projects"
 ---
 
 System Administrator at Techonsite  
-COMPTIA A+ and Security+ Certified  
+CompTIA A+ and Security+ Certified  
 Serving 40+ companies ranging from small business to enterprise level clients  
 
 - [Network Upgrade Projects](network-project.pdf)
