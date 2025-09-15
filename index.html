@@ -12,6 +12,6 @@ title: "Projects"
     </article>
   {% endfor %}
 {% else %}
-  {% capture source %}{% include_relative archive.html title="Posts" %}{% endcapture %}
+  {% capture source %}{% include_relative archive.html title="Projects" %}{% endcapture %}
   {{ source | split: "---" | last }}
 {% endif %}
