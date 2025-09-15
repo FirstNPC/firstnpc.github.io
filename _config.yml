@@ -28,7 +28,7 @@ navigation:                     # accepts {file, title, url, icon, sidebaricon}
 external:                       # accepts {file, title, url, icon, sidebaricon}
   - {title: Mail, icon: envelope, url: "danielyoun247@gmail.com"}
   - {title: Github, icon: github, url: "https://github.com/FirstNPC"}
-  - {title: linkedin, icon: LinkedIn, url: "https://www.linkedin.com/in/djyoun/"}
+  - {title: linkedin, icon: linkedin, url: "https://www.linkedin.com/in/djyoun/"}
 
 comments:
 #  disqus_shortname: ""         # see https://disqus.com
