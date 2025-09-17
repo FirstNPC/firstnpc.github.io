@@ -4,7 +4,7 @@ title: "About Me & Projects"
 ---
 
 System Administrator at <a href="https://techonsite.com/managed-it-services-in-los-angeles-about-us/" target="_blank">Techonsite</a>  
-Serving 40+ companies ranging from small business to enterprise level clients  
+Serving 40+ companies ranging from small to medium sized businesses.  
 <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY" target="_blank">CompTIA A+ Certified</a>  
 <a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7" target="_blank">CompTIA Security+ Certified</a> 
 
