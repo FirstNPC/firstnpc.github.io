@@ -3,15 +3,27 @@ layout: page
 title: "About Me & Projects"
 ---
 
-Systems Administrator at <a href="https://techonsite.com/managed-it-services-in-los-angeles-about-us/" target="_blank">Techonsite</a>  
+Systems Administrator at [Techonsite](https://techonsite.com/managed-it-services-in-los-angeles-about-us/){:target="_blank"}  
 Serving 40+ companies ranging from small to medium sized businesses.  
-<a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY" target="_blank">CompTIA A+ Certified</a>  
-<a href="https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7" target="_blank">CompTIA Security+ Certified</a> 
+[CompTIA A+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY){:target="_blank"}  
+[CompTIA Security+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7){:target="_blank"}
 
-Projects
-- [Network Upgrade Projects](network-project.pdf)
-- [OnPrem Server to SharePoint Migration Projects](SharePoint%20Migration%20Project.pdf)
-- [Secure App-Restricted Remote Access Project](Project1.pdf)
-- [Failed RAID Drive Replacement & Symbolic Link Setup Project](Project2.pdf)
-- [New Office Network and On-Prem AD Server Setup Project](Office%20Setup.pdf)
-- [Traditional Phones to VOIP Migration Projects](VOIP-Migration.pdf)
+## Projects
+
+- [Network Upgrade Project](/projects/network-upgrade/)
+- [OnPrem Server to SharePoint Migration Project](/projects/sharepoint-migration/)
+- [Secure App-Restricted Remote Access Project](/projects/secure-remote-access/)
+- [Failed RAID Drive Replacement & Symbolic Link Setup Project](/projects/raid-replacement/)
+- [New Office Network and On-Prem AD Server Setup Project](/projects/office-setup/)
+- [Traditional Phones to VOIP Migration Project](/projects/voip-migration/)
+
+## Cisco Packet Tracer Virtual Labs
+
+- [11.0: Network Topologies](/cptlabs/11-network-topologies/)
+- [12.0: Cabling](/cptlabs/12-cabling/)
+- [13.0: Network Addressing Schemes](/cptlabs/13-network-addressing-schemes/)
+- [14.0: Network Communications Protocols](/cptlabs/14-network-communications-protocols/)
+- [15.0: Routing Network Assessment](/cptlabs/15-routing-network-assessment/)
+- [16.0: Network Systems](/cptlabs/16-network-systems/)
+- [17.0: Basic Network Administration](/cptlabs/17-basic-network-administration/)
+- [18.0: Network Monitoring](/cptlabs/18-network-monitoring/)
