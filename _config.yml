@@ -14,8 +14,8 @@ show_minimal: false
 
 # Menu (icons: https://fontawesome.com/v5/icons/)
 navigation:
-  - {file: "README.md", title: "README", icon: info-circle}
-  - {file: "resume.pdf", title: "Resume", icon: file-alt}
+  - {file: "README.md", title: "README"}
+  - {file: "resume.pdf", title: "Resume"}
 
 external:
   - {title: Mail, icon: envelope, url: "mailto:danielyoun247@gmail.com"}
