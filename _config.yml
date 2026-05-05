@@ -20,6 +20,7 @@ show_minimal: false             # remove all clutter
 navigation:                     # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md", title: "README", sidebaricon: address-card}
   - {file: "resume.pdf", title: "Resume", sidebaricon: home}
+  - {title: "Cisco Packet Tracer Labs", file: "cptlabs.md"
 
 
 
