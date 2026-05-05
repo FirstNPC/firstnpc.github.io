@@ -1,7 +1,6 @@
 title: "Daniel Youn"
 author: "Daniel Youn"
 description: "Daniel Youn — Systems Administrator portfolio. IT projects, networking labs, and certifications."
-permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
