@@ -1,8 +1,10 @@
 ---
-layout: default
+layout: page
 ---
 
 # About Me
+
+Systems Administrator at [Techonsite](...){:target="_blank"}  
 Systems Administrator at [Techonsite](https://techonsite.com/managed-it-services-in-los-angeles-about-us/){:target="_blank"}  
 Serving 40+ companies ranging from small to medium sized businesses.  
 B.S., University of California, Irvine  
@@ -10,6 +12,7 @@ B.S., University of California, Irvine
 [CompTIA Security+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7){:target="_blank"}
 
 ## Projects
+
 - [Network Upgrade Project](/projects/network-upgrade/)
 - [OnPrem Server to SharePoint Migration Project](/projects/sharepoint-migration/)
 - [Secure App-Restricted Remote Access Project](/projects/secure-remote-access/)
@@ -18,6 +21,7 @@ B.S., University of California, Irvine
 - [Traditional Phones to VOIP Migration Project](/projects/voip-migration/)
 
 ## Cisco Packet Tracer Virtual Labs
+
 - [11.0: Network Topologies](/cptlabs/11-network-topologies/)
 - [12.0: Cabling](/cptlabs/12-cabling/)
 - [13.0: Network Addressing Schemes](/cptlabs/13-network-addressing-schemes/)
