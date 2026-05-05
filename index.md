@@ -1,10 +1,11 @@
 ---
 layout: page
-title: "About Me & Projects"
+title: "About Me"
 ---
 
 Systems Administrator at [Techonsite](https://techonsite.com/managed-it-services-in-los-angeles-about-us/){:target="_blank"}  
 Serving 40+ companies ranging from small to medium sized businesses.  
+B.S., University of California, Irvine  
 [CompTIA A+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY){:target="_blank"}  
 [CompTIA Security+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7){:target="_blank"}
 
