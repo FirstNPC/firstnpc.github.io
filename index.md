@@ -1,7 +1,8 @@
 ---
 layout: page
-title: "About Me"
 ---
+
+# About Me
 
 Systems Administrator at [Techonsite](https://techonsite.com/managed-it-services-in-los-angeles-about-us/){:target="_blank"}  
 Serving 40+ companies ranging from small to medium sized businesses.  
