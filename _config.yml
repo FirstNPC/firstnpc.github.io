@@ -1,38 +1,30 @@
-title: "Daniel Youn - Systems Administrator"
-author: "Blog Author: Daniel Youn"
-description: "University of California, Irvine"
-permalink: /:title/
-lang: "en"
-excerpt_separator: "\n\n\n"
-date_format: "%B %d, %Y"
+---
+layout: page
+title: "About Me"
+---
 
-# Layout
+Systems Administrator at [Techonsite](https://techonsite.com/managed-it-services-in-los-angeles-about-us/){:target="_blank"}  
+Serving 40+ companies ranging from small to medium sized businesses.  
+B.S., University of California, Irvine  
+[CompTIA A+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=W825SFV9E86PFFCY){:target="_blank"}  
+[CompTIA Security+ Certified](https://www.certmetrics.com/comptia/public/verification.aspx?code=QVRN3X3W3V60F7G7){:target="_blank"}
 
-show_excerpts: false             # show article excerpts instead of archive list on the home page
-show_frame: true                # display a grey frame on large screens
-show_sidebar: false             # show a sidebar instead of the usual header
-show_minimal: false             # remove all clutter
+## Projects
 
-#show_frame: "/assets/images/background.svg"
+- [Network Upgrade Project](/projects/network-upgrade/)
+- [OnPrem Server to SharePoint Migration Project](/projects/sharepoint-migration/)
+- [Secure App-Restricted Remote Access Project](/projects/secure-remote-access/)
+- [Failed RAID Drive Replacement & Symbolic Link Setup Project](/projects/raid-replacement/)
+- [New Office Network and On-Prem AD Server Setup Project](/projects/office-setup/)
+- [Traditional Phones to VOIP Migration Project](/projects/voip-migration/)
 
-# Menu                          # for available icons see https://fontawesome.com/v5/icons/
+## Cisco Packet Tracer Virtual Labs
 
-navigation:                     # accepts {file, title, url, icon, sidebaricon}
-  - {file: "README.md", title: "README", sidebaricon: address-card}
-  - {file: "resume.pdf", title: "Resume", sidebaricon: home}
-  - {file: "cptlabs.md", title: "Cisco Packet Tracer Labs", sidebaricon: home}
-
-
-
-  
-external:                       # accepts {file, title, url, icon, sidebaricon}
-  - {title: Mail, icon: envelope, url: "danielyoun247@gmail.com"}
-  - {title: Github, icon: github, url: "https://github.com/FirstNPC"}
-  - {title: LinkedIn, icon: linkedin-in, url: "https://www.linkedin.com/in/djyoun/"}
-
-comments:
-#  disqus_shortname: ""         # see https://disqus.com
-#  isso_domain: ""              # see https://isso-comments.de
-
-plugins:
- - jekyll-feed
+- [11.0: Network Topologies](/cptlabs/11-network-topologies/)
+- [12.0: Cabling](/cptlabs/12-cabling/)
+- [13.0: Network Addressing Schemes](/cptlabs/13-network-addressing-schemes/)
+- [14.0: Network Communications Protocols](/cptlabs/14-network-communications-protocols/)
+- [15.0: Routing Network Assessment](/cptlabs/15-routing-network-assessment/)
+- [16.0: Network Systems](/cptlabs/16-network-systems/)
+- [17.0: Basic Network Administration](/cptlabs/17-basic-network-administration/)
+- [18.0: Network Monitoring](/cptlabs/18-network-monitoring/)
