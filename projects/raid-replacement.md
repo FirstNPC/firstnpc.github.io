@@ -12,6 +12,9 @@ A dental practice client (Anon Dental) was operating on aging SATA storage that 
 The solution combined a Dell PERC H730P RAID rebuild with a Windows directory junction (`mklink /J`) so the application kept writing to the same `E:\Gendex Images` path while the data physically lived on the new array.
 
 ## Environment
+
+![Server closet overview showing rack, tower servers, and cabling](/assets/projects/raid-replacement/00-server-room.jpg)
+
 - Dell PowerEdge T340 server, Windows Server [version]
 - Dell PERC H730P Adapter RAID controller
 - Existing storage: SATA-based RAID 5 virtual disk hosting `E:\Gendex Images`
@@ -78,21 +81,37 @@ Before touching anything I captured baseline state so I had a rollback reference
 
 ![Selecting RAID 5 from the RAID level list](/assets/projects/raid-replacement/10-raid-level.jpg)
 
+![Select Physical Disks screen with all four drives unchecked before selection](/assets/projects/raid-replacement/10b-physical-disks-before.jpg)
+
 9. Used **Select Physical Disks** and checked all four newly installed SAS drives (and only those four) using spacebar
 
 ![All four new 1.091TB SAS drives selected](/assets/projects/raid-replacement/11-physical-disks.jpg)
 
 10. **Apply Changes** → "The operation has been performed successfully" → **OK**
+
+![Apply Changes success confirmation screen](/assets/projects/raid-replacement/11b-apply-changes-success.jpg)
+
 11. Scrolled to the bottom and selected **Create Virtual Disk** → checked the **Confirm** box → **Yes**
 12. Confirmation again → **OK**
 13. Returned to **Virtual Disk Management** and verified both the original and the new virtual disks were listed correctly
+
+![Virtual Disk Management showing both VD0 (1.635TB) and VD1 (3.273TB) listed as Ready](/assets/projects/raid-replacement/11c-vdisk-confirmed.jpg)
+
 14. **Finish** and booted into Windows
 
 ### 3. Initialize the new volume
 1. Opened Disk Manager
+
+![Disk Management showing new unallocated Disk 1 with right-click New Simple Volume menu](/assets/projects/raid-replacement/13-disk-mgmt-new-disk.jpg)
+
 2. Initialized the new disk as GPT
 3. Created a Simple Volume, formatted as NTFS, assigned drive letter `D:`
+
+![New Simple Volume Wizard Format Partition step with NTFS and Data volume label selected](/assets/projects/raid-replacement/14-format-partition.jpg)
+
 4. Verified `D:` was visible and writable
+
+![Disk Management after new volume is initialized and online as Data (A:) 3351.73 GB](/assets/projects/raid-replacement/15-disk-mgmt-after-init.jpg)
 
 ### 4. Pre-stage the data with FreeFileSync (during business hours)
 With the new volume online, I pre-copied while the practice continued working normally. This dramatically shortened the after-hours cutover window.
