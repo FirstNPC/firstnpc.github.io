@@ -13,7 +13,7 @@ The solution combined a Dell PERC H730P RAID rebuild with a Windows directory ju
 
 ## Environment
 
-![Server closet overview showing rack, tower servers, and cabling](/assets/projects/raid-replacement/00-server-room.jpg)
+![Server closet overview showing rack, tower servers, and cabling](/assets/raid-replacement/00-server-room.jpg)
 
 - Dell PowerEdge T340 server, Windows Server [version]
 - Dell PERC H730P Adapter RAID controller
@@ -22,7 +22,7 @@ The solution combined a Dell PERC H730P RAID rebuild with a Windows directory ju
 - Application: Gendex imaging software reading and writing to `E:\Gendex Images`
 - Share: SMB share of `E:\Gendex Images` mapped from staff workstations via Group Policy drive maps
 
-![New 1.2TB Dell SAS drive in caddy](/assets/projects/raid-replacement/01-new-drive.jpg)
+![New 1.2TB Dell SAS drive in caddy](/assets/raid-replacement/01-new-drive.jpg)
 
 ## Goals
 - Migrate imaging data to faster, more reliable SAS storage
@@ -48,70 +48,70 @@ Before touching anything I captured baseline state so I had a rollback reference
 - The Group Policy drive map that pushed `Y:` to staff workstations pointing at `\\<server>\Gendex Images`
 - Confirmed the Gendex imaging software was working normally end-to-end
 
-![Existing volume layout in Disk Management before changes](/assets/projects/raid-replacement/02-disk-mgmt-before.jpg)
+![Existing volume layout in Disk Management before changes](/assets/raid-replacement/02-disk-mgmt-before.jpg)
 
-![Group Policy drive map for the Gendex Images share](/assets/projects/raid-replacement/03-gpo-drive-maps.png)
+![Group Policy drive map for the Gendex Images share](/assets/raid-replacement/03-gpo-drive-maps.jpg)
 
 ### 2. Install new drives and create the RAID 5 virtual disk
 1. Shut down the server cleanly
 2. Installed the four new 1.2TB SAS drives into available bays using the standard Dell hard drive caddies
 
-![New drive seated in caddy ready to insert](/assets/projects/raid-replacement/04-drive-in-caddy.jpg)
+![New drive seated in caddy ready to insert](/assets/raid-replacement/04-drive-in-caddy.jpg)
 
 3. Powered on and pressed F2 at POST to enter System Setup
 4. From System Setup Main Menu, selected **Device Settings**
 
-![Dell EMC System Setup Main Menu](/assets/projects/raid-replacement/05-system-setup-main.jpg)
+![Dell EMC System Setup Main Menu](/assets/raid-replacement/05-system-setup-main.jpg)
 
 5. From Device Settings, selected **RAID Controller in Slot 1: Dell PERC <PERC H730P Adapter> Configuration Utility**
 
-![Device Settings with PERC H730P highlighted](/assets/projects/raid-replacement/06-device-settings.jpg)
+![Device Settings with PERC H730P highlighted](/assets/raid-replacement/06-device-settings.jpg)
 
 6. From the PERC Main Menu, opened **Virtual Disk Management** and noted the existing virtual disk's number and RAID level (so I would not confuse it with the new one)
 
-![PERC H730P Configuration Utility Main Menu](/assets/projects/raid-replacement/07-perc-main-menu.jpg)
+![PERC H730P Configuration Utility Main Menu](/assets/raid-replacement/07-perc-main-menu.jpg)
 
-![Existing Virtual Disk 0: RAID 5 documented before changes](/assets/projects/raid-replacement/08-existing-vdisk.jpg)
+![Existing Virtual Disk 0: RAID 5 documented before changes](/assets/raid-replacement/08-existing-vdisk.jpg)
 
 7. Backed out and went to **Configuration Management → Create Virtual Disk**
 
-![Configuration Management with Create Virtual Disk highlighted](/assets/projects/raid-replacement/09-config-mgmt.jpg)
+![Configuration Management with Create Virtual Disk highlighted](/assets/raid-replacement/09-config-mgmt.jpg)
 
 8. Set **RAID Level: RAID 5**
 
-![Selecting RAID 5 from the RAID level list](/assets/projects/raid-replacement/10-raid-level.jpg)
+![Selecting RAID 5 from the RAID level list](/assets/raid-replacement/10-raid-level.jpg)
 
-![Select Physical Disks screen with all four drives unchecked before selection](/assets/projects/raid-replacement/10b-physical-disks-before.jpg)
+![Select Physical Disks screen with all four drives unchecked before selection](/assets/raid-replacement/10b-physical-disks-before.jpg)
 
 9. Used **Select Physical Disks** and checked all four newly installed SAS drives (and only those four) using spacebar
 
-![All four new 1.091TB SAS drives selected](/assets/projects/raid-replacement/11-physical-disks.jpg)
+![All four new 1.091TB SAS drives selected](/assets/raid-replacement/11-physical-disks.jpg)
 
 10. **Apply Changes** → "The operation has been performed successfully" → **OK**
 
-![Apply Changes success confirmation screen](/assets/projects/raid-replacement/11b-apply-changes-success.jpg)
+![Apply Changes success confirmation screen](/assets/raid-replacement/11b-apply-changes-success.jpg)
 
 11. Scrolled to the bottom and selected **Create Virtual Disk** → checked the **Confirm** box → **Yes**
 12. Confirmation again → **OK**
 13. Returned to **Virtual Disk Management** and verified both the original and the new virtual disks were listed correctly
 
-![Virtual Disk Management showing both VD0 (1.635TB) and VD1 (3.273TB) listed as Ready](/assets/projects/raid-replacement/11c-vdisk-confirmed.jpg)
+![Virtual Disk Management showing both VD0 (1.635TB) and VD1 (3.273TB) listed as Ready](/assets/raid-replacement/11c-vdisk-confirmed.jpg)
 
 14. **Finish** and booted into Windows
 
 ### 3. Initialize the new volume
 1. Opened Disk Manager
 
-![Disk Management showing new unallocated Disk 1 with right-click New Simple Volume menu](/assets/projects/raid-replacement/13-disk-mgmt-new-disk.jpg)
+![Disk Management showing new unallocated Disk 1 with right-click New Simple Volume menu](/assets/raid-replacement/13-disk-mgmt-new-disk.jpg)
 
 2. Initialized the new disk as GPT
 3. Created a Simple Volume, formatted as NTFS, assigned drive letter `D:`
 
-![New Simple Volume Wizard Format Partition step with NTFS and Data volume label selected](/assets/projects/raid-replacement/14-format-partition.jpg)
+![New Simple Volume Wizard Format Partition step with NTFS and Data volume label selected](/assets/raid-replacement/14-format-partition.jpg)
 
 4. Verified `D:` was visible and writable
 
-![Disk Management after new volume is initialized and online as Data (A:) 3351.73 GB](/assets/projects/raid-replacement/15-disk-mgmt-after-init.jpg)
+![Disk Management after new volume is initialized and online as Data (A:) 3351.73 GB](/assets/raid-replacement/15-disk-mgmt-after-init.jpg)
 
 ### 4. Pre-stage the data with FreeFileSync (during business hours)
 With the new volume online, I pre-copied while the practice continued working normally. This dramatically shortened the after-hours cutover window.
@@ -136,7 +136,7 @@ This made `E:\Gendex Images` a transparent pointer to `D:\Gendex Images`. Anythi
 1. Wrote a test file to `E:\Gendex Images` and confirmed it appeared in `D:\Gendex Images` (and vice versa), confirming the junction was working
 2. From a workstation, opened the mapped drive and confirmed all images were present and accessible with the expected permissions
 
-![File Explorer showing D: and E: paths with identical contents after junction](/assets/projects/raid-replacement/12-file-explorer-after.png)
+![File Explorer showing D: and E: paths with identical contents after junction](/assets/raid-replacement/12-file-explorer-after.jpg)
 
 3. Launched the Gendex imaging software and confirmed:
    - Existing patient images opened normally
