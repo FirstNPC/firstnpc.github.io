@@ -12,6 +12,7 @@ B.S., University of California, Irvine
 
 ## Projects
 
+- [The Clean Log and the Smoking Gun: An AiTM Compromise Investigation](/projects/post-compromise-remediation/)
 - [Network Upgrade Project](/projects/network-upgrade/)
 - [OnPrem Server to SharePoint Migration Project](/projects/sharepoint-migration/)
 - [Secure App-Restricted Remote Access Project](/projects/secure-remote-access/)
