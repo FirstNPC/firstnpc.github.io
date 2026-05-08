@@ -194,3 +194,5 @@ Entra admin center > Enterprise Applications > change the filter to **All Applic
 - Outlook on the Web (rule audit)
 - Microsoft Authenticator (re-registration)
 - Excel (cross-referencing exported sign-in logs)
+
+[Back to home](/)
