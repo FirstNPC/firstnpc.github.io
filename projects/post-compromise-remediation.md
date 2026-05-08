@@ -6,21 +6,19 @@ permalink: /projects/post-compromise-remediation/
 
 # The Clean Log and the Smoking Gun: An AiTM Compromise Investigation
 
-A user account at a small business client was compromised through a successful phishing attempt. The first responder reset the password and revoked sessions, which is the textbook starting move. This case study covers everything that came after, because a password reset alone leaves most attacker persistence intact, and because the actual compromise vector turned out to be more interesting than the surface symptoms suggested.
+A user account at a small business client was compromised through a successful phishing attempt. I reset the password and revoked sessions on first detection, which is the textbook starting move. This case study covers everything that came after, because a password reset alone leaves most attacker persistence intact, and because the actual compromise vector turned out to be more interesting than the surface symptoms suggested.
 
 ## Background
 
 | Item | Detail |
 |---|---|
 | Environment | Microsoft 365 tenant, Exchange Online, Entra ID |
-| Initial response | Password reset, sign-in sessions revoked |
 | MFA status before incident | Not configured for the affected user |
 | Tenant licensing | Exchange Online Plan 1 (no Conditional Access available) |
-| Remediation owner | Me, after escalation from initial responder |
 
 The tenant had Security Defaults disabled, meaning no baseline MFA was being enforced for any user.
 
-![Entra admin center showing Security defaults set to Disabled](/assets/post-compromise-remediation/00-security-defaults-disabled.png)
+[![Entra admin center showing Security defaults set to Disabled](/assets/post-compromise-remediation/00-security-defaults-disabled.png)](/assets/post-compromise-remediation/00-security-defaults-disabled.png){:target="_blank"}
 
 This is the precondition that allowed the compromise. With Security Defaults disabled and no Conditional Access policies (the tenant was on Exchange Online Plan 1, which does not include Entra ID P1), every account in the tenant was protected only by a password.
 
@@ -28,13 +26,13 @@ This is the precondition that allowed the compromise. With Security Defaults dis
 
 The user reported being able to send emails but not receive them. A review of the user's mailbox rules in Outlook on the Web showed why.
 
-![Outlook rules showing a suspicious rule named "." that marks all incoming messages as read and moves them to Conversation History](/assets/post-compromise-remediation/01-outlook-rules.png)
+[![Outlook rules showing a suspicious rule named "." that marks all incoming messages as read and moves them to Conversation History](/assets/post-compromise-remediation/01-outlook-rules.png)](/assets/post-compromise-remediation/01-outlook-rules.png){:target="_blank"}
 
 A rule named "." (a single period) had been created on the mailbox. It marked every incoming message as Read and moved it to the Conversation History folder. This is a common attacker tactic. It hides reply emails from the user, especially replies to phishing messages the attacker is sending from the compromised mailbox, while leaving the inbox apparently intact. The unusual rule name and behavior were the first clear indicator of compromise.
 
 ## Why the Initial Response Was Not Enough
 
-The first responder's password reset and session revocation were correct first moves, but they only address part of the problem. A password reset closes the front door. It does not address:
+My password reset and session revocation were correct first moves, but they only address part of the problem. A password reset closes the front door. It does not address:
 
 - Authentication methods the attacker registered for themselves (their own phone number, their own authenticator app, or a FIDO key)
 - Inbox rules silently hiding or forwarding mail
@@ -61,11 +59,11 @@ Both logs matter because a clever attacker can steal a session token and keep us
 
 In the Entra admin center under Sign-in events, I filtered to the affected user and applied a 30-day date range with Status set to Success, then exported each tab as a CSV.
 
-![Sign-in events page filtered to the affected user, showing the User sign-ins (interactive) tab](/assets/post-compromise-remediation/02-interactive-signins.png)
+[![Sign-in events page filtered to the affected user, showing the User sign-ins (interactive) tab](/assets/post-compromise-remediation/02-interactive-signins.png)](/assets/post-compromise-remediation/02-interactive-signins.png){:target="_blank"}
 
 The interactive tab returned 58 entries over 30 days, all from the user's expected IP ranges. Nothing visibly wrong.
 
-![Sign-in events page filtered to the affected user, showing the User sign-ins (non-interactive) tab](/assets/post-compromise-remediation/03-noninteractive-signins.png)
+[![Sign-in events page filtered to the affected user, showing the User sign-ins (non-interactive) tab](/assets/post-compromise-remediation/03-noninteractive-signins.png)](/assets/post-compromise-remediation/03-noninteractive-signins.png){:target="_blank"}
 
 The non-interactive tab returned 3,603 entries over the same period. The entries from commercial datacenter IP ranges were the smoking gun.
 
@@ -73,7 +71,7 @@ The non-interactive tab returned 3,603 entries over the same period. The entries
 
 Cross-referencing the two CSVs side by side gave me the exact moment of compromise.
 
-![Side-by-side view of the interactive and non-interactive sign-in CSVs in Excel, with the AiTM moment highlighted: an interactive sign-in at 2026-04-16T17:25:22Z from a Mozilla browser, followed one second later by a non-interactive sign-in from the same IP with user agent "node"](/assets/post-compromise-remediation/04-csv-evidence.png)
+[![Side-by-side view of the interactive and non-interactive sign-in CSVs in Excel, with the AiTM moment highlighted: an interactive sign-in at 2026-04-16T17:25:22Z from a Mozilla browser, followed one second later by a non-interactive sign-in from the same IP with user agent "node"](/assets/post-compromise-remediation/04-csv-evidence.png){:width="100%"}](/assets/post-compromise-remediation/04-csv-evidence.png){:target="_blank"}
 
 The two highlighted rows are one second apart, from the same IP, with completely different user agents. The interactive entry shows a normal Mozilla Windows browser. The non-interactive entry shows the literal string `node`, which is what Node.js scripts identify as. No human switches from a browser to a script in one second.
 
@@ -97,13 +95,13 @@ Once it was clear the compromise vector was a stolen session token rather than a
 
 The full remediation, in order:
 
-### 1. Password reset (done by first responder)
+### 1. Password reset
 
-The user's password was reset to a new strong password on first detection of suspicious activity.
+On first detection of suspicious activity, I reset the user's password to a new strong value.
 
-### 2. Sessions revoked (done by first responder)
+### 2. Sessions revoked
 
-All active sign-in sessions were revoked through the Entra admin center, invalidating any session tokens issued before the reset.
+I revoked all active sign-in sessions through the Entra admin center, invalidating any session tokens issued before the reset.
 
 ### 3. Authentication methods cleared
 
@@ -173,7 +171,7 @@ After Security Defaults was enabled, I walked the affected user through a clean 
 
 During the registration flow, the user hit an error when trying to open an encrypted message:
 
-![Troubleshooting details showing AADSTS500014 error: the service principal for resource 'https://aadrm.com' is disabled](/assets/post-compromise-remediation/05-aadsts500014-error.png)
+[![Troubleshooting details showing AADSTS500014 error: the service principal for resource 'https://aadrm.com' is disabled](/assets/post-compromise-remediation/05-aadsts500014-error.png)](/assets/post-compromise-remediation/05-aadsts500014-error.png){:target="_blank"}
 
 This is the Microsoft Rights Management Services service principal being disabled at the tenant level, unrelated to the compromise but exposed by it. I re-enabled it via:
 
