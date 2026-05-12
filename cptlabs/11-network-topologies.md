@@ -6,7 +6,7 @@ permalink: /cptlabs/11-network-topologies/
 
 ## Lab 4: Packet Tracer - Configure Initial Router Settings
 
-**Module:** 4 | **Completed:** May 10, 2026 | **Score:** 80/80 (10/10 items)
+**Module:** 11 | **Completed:** May 10, 2026 | **Score:** 80/80 (10/10 items)
 
 **Skills demonstrated:** Router CLI navigation, hostname configuration, MOTD banner, password encryption, enable secret vs enable password, console line login, saving configuration to NVRAM
 
