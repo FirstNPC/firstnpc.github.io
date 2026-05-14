@@ -224,6 +224,32 @@ Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)
 
 ---
 
+### Understanding the `%IP-4-DUPADDR` Message
+
+Address conflict warnings like this one are easy to gloss over inside the boot output, but the message itself contains everything needed to find the offending device. Decoding it is worth doing once.
+
+**The analogy.** Every device on a network needs a unique IP, the same way every house on a street needs a unique number. If two houses both claim "123 Main Street," the mail carrier has no way to know which one to deliver to. Two devices claiming `192.168.0.65` produces the same kind of routing ambiguity: packets bound for that IP might land at the router or at the rogue PC depending on which entry the upstream switch's MAC table has cached at the moment. The symptom looks like flaky, intermittent connectivity rather than a clean failure.
+
+**The message format.** Cisco IOS log messages always follow the same shape. Reading them piece by piece turns a wall of text into actionable information:
+
+| Piece | Meaning |
+|:--|:--|
+| `%` | System message marker |
+| `IP` | The subsystem reporting (the IP stack) |
+| `4` | Severity level. 4 is Warning |
+| `DUPADDR` | Mnemonic for "duplicate address" |
+| `192.168.0.65` | The contested IP |
+| `GigabitEthernet0/1` | The local interface that detected the conflict |
+| `0050.0F33.E320` | The MAC address of the other device claiming that IP |
+
+The last field is the critical one for troubleshooting. The router is essentially saying, "this is not me, it is that device over there, and here is its fingerprint."
+
+**How the router detected it.** As soon as a Cisco interface comes up, it sends a gratuitous ARP on the segment: a broadcast that asks, in effect, "is anyone already using this address?" If a device replies, the router logs the conflict and includes the responder's MAC. In this lab, PC-B raised its hand because it had been given `.65` instead of its assigned `.126`.
+
+**Why this matters in production.** Address conflicts are one of the harder real-world bugs to track down by symptom alone, because the end-user experience is "the internet feels broken" rather than "device X is down." `%IP-4-DUPADDR` short-circuits the whole hunt: it names the contested IP, the segment where the fight is happening, and the MAC fingerprint of the offending device. Match the MAC to a device and the diagnosis is complete.
+
+---
+
 ### Check Results
 
 ![Check Results summary screen](/assets/images/cptlabs/mod13/lab15_check-results-summary.png)
