@@ -25,7 +25,7 @@ B.S., University of California, Irvine
 - [11.0: Network Topologies: Configuring and Hardening a Cisco Router](/cptlabs/11-network-topologies/)
 - [12.0: Cabling: Physical Layer Build of a Multi-Segment Network](/cptlabs/12-cabling/)
 - [13.0: Network Addressing Schemes: Subnetting an IPv4 Network](/cptlabs/13-network-addressing-schemes/)
-- [14.0: Network Communications Protocols](/cptlabs/14-network-communications-protocols/)
+- [14.0: Network Communications Protocols: DHCP Scope Design on a SOHO Router](https://firstnpc.github.io/cptlabs/14-network-communications-protocols/)
 - [15.0: Routing Network Assessment](/cptlabs/15-routing-network-assessment/)
 - [16.0: Network Systems](/cptlabs/16-network-systems/)
 - [17.0: Basic Network Administration](/cptlabs/17-basic-network-administration/)
