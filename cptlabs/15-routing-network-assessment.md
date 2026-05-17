@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "15.0: Secure Network Devices"
-permalink: /cptlabs/15-secure-network-devices/
+title: "15.0: Routing Network Assessment"
+permalink: /cptlabs/15-routing-network-assessment/
 ---
 
 ## Lab 21: Packet Tracer - Secure Network Devices
