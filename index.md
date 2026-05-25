@@ -28,5 +28,5 @@ B.S., University of California, Irvine
 - [14.0: Network Communications Protocols: DHCP Scope Design on a SOHO Router](https://firstnpc.github.io/cptlabs/14-network-communications-protocols/)
 - [15.0: Routing Network Assessment: Hardening SSH and Login Access on a Router and Switch](https://firstnpc.github.io/cptlabs/15-routing-network-assessment/)
 - [16.0: Network Systems: Planning IP Addresses for a Two-Office Network (VLSM Design and Implementation Practice)](/cptlabs/16-network-systems/)
-- [17.0: Basic Network Administration](/cptlabs/17-basic-network-administration/)
+- [17.0: Basic Network Administration: Configuring Secure Passwords and SSH on a Router and Switch](/cptlabs/17-basic-network-administration/)
 - [18.0: Network Monitoring](/cptlabs/18-network-monitoring/)
