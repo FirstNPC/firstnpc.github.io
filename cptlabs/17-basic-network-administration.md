@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "17.0: Basic Network Administration: Configuring Secure Passwords and SSH on a Router and Switch"
+title: "17.0: Basic Network Administration"
 permalink: /cptlabs/17-basic-network-administration/
 ---
 
@@ -192,8 +192,6 @@ Final score: **213/213** across 67 assessment items covering Basic Security Conf
 
 **What was challenging:** Tracking the order of operations across two devices. The hardening commands are the same on RTA and SW1, but the prerequisites differ: SW1 needs a default gateway for its management VLAN to reach anything off-subnet, the unused-port shutdown is switch-specific, and the VTY range is `0 4` on the router versus `0 15` on the switch. Easy to mirror one for the other without thinking.
 
-**What I would do differently:** Set the enable secret as part of the very first hardening block, before the user account and RSA key. Once it's in habit, the running-config is never left in a state where privileged EXEC is unprotected, even briefly. And before treating syntax in lab directions as fixed, verify what each token actually is — `any_user` and `any_password` are placeholders for one word each, not a template to extend.
-
-**What I would carry forward:** Using different local usernames and different enable secrets on each device (`firstnpc` / `networkplus` on RTA, `admin` / `class` on SW1). In a small lab this feels like extra cognitive load, but in production it limits the blast radius if one credential leaks — an attacker with SW1's enable secret cannot use it to enter privileged EXEC on RTA. The cost is a password manager entry per device; the benefit is real.
+**What I would do differently:** Build a hardening checklist and work it top-down rather than following the lab steps in order. The lab walks through the commands in a sequence that made sense for teaching, but it leaves the enable secret until late and mixes interface configuration in with security configuration. A checklist organized by security domain (authentication, then access control, then logging, then interface state) catches the missing-enable-secret gap before saving rather than after.
 
 [Back to home](/)
